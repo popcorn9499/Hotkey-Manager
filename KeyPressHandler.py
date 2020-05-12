@@ -10,7 +10,7 @@ class KEY_STATE:
 ECODES = evdev.ecodes
 UINPUT = evdev.UInput()
 
-class key():
+class Key():
     def __init__(self):
         pass
 
@@ -21,21 +21,24 @@ class key():
         UINPUT.syn()
 
 
-class keyPress(key):
+class KeyPress(Key):
     def __init__(self, keys = []):
         self.keys = keys
         super()
 
     async def _pressHandler(self,keyState):
         for key in self.keys: #press the required keys
-            await super.addKey(key,KEY_STATE.KEY_TOGGLE)
+            await self.addKey(key,keyState)
     
     async def keyPress(self,keyState=KEY_STATE.KEY_TOGGLE,pressDuration=0):
         if keyState == KEY_STATE.KEY_TOGGLE:
             await self._pressHandler(KEY_STATE.KEY_DOWN)
             await asyncio.sleep(pressDuration)
-            await super.sync()
+            await self.sync()
             await asyncio.sleep(pressDuration)
             await self._pressHandler(KEY_STATE.KEY_UP)
+            await self.sync()
         else:
             await self._pressHandler(keyState)
+            await asyncio.sleep(pressDuration)
+            await self.sync()
