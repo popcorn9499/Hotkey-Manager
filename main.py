@@ -9,12 +9,12 @@ from evdev.ecodes import *
 
 device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd")
 
-
-@device.eventHandler.event(KEY_A)
+#MAke event handle key and key state
+@device.eventHandler(KEY_LEFTCTRL+KEY_A)
 async def foo():
     ProgramHandler("cat /home/popcorn9499/iommuGroups.sh")
 
-@device.eventHandler.event(KEY_B)
+@device.eventHandler(KEY_B)
 async def bar():
     print("This is bar's first handler")
 
