@@ -5,10 +5,10 @@ class EventHandler:
         self.handlers = {}
         self.states=states
 
-    async def call(self, type):
+    async def call(self, type,*args, **kargs):
         if type in self.handlers:
             for h in self.handlers[type]:
-                await h()
+                await h(*args,**kargs)
 
     def __call__(self, type):
         def registerhandler(handler):

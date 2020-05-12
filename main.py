@@ -11,12 +11,13 @@ device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd",grab
 
 #MAke event handle key and key state
 @device.eventHandler(KEY_LEFTCTRL+KEY_A)
-async def foo():
+async def foo(event):
     ProgramHandler("cat /home/popcorn9499/iommuGroups.sh")
 
 @device.eventHandler(KEY_B)
-async def bar():
+async def bar(event):
     print("This is bar's first handler")
+    print(evdev.categorize(event))
 
 
 

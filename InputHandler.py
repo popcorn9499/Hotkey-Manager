@@ -17,4 +17,5 @@ class InputHandler():
         async for ev in self.dev.async_read_loop():
             if ev.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(ev))
-                await self.eventHandler.call(ev.code)
+                await self.eventHandler.call(ev.code,ev)
+                print(ev.value)
