@@ -21,9 +21,10 @@ class key():
         UINPUT.syn()
 
 
-class keyPress():
+class keyPress(key):
     def __init__(self, keys = []):
         self.keys = keys
+        super()
 
     async def _pressHandler(self,keyState):
         for key in self.keys: #press the required keys
