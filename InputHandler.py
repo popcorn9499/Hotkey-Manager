@@ -6,9 +6,11 @@ from EventHandler import EventHandler
 
 
 class InputHandler():
-    def __init__(self,device):
+    def __init__(self,device,grabbed=False):
         self.dev = evdev.InputDevice(device)
         self.eventHandler = EventHandler()
+        if grabbed:
+            self.dev.grab()
         asyncio.get_event_loop().create_task(self.keyboardHandler())
 
     async def keyboardHandler(self):

@@ -7,7 +7,7 @@ from ProgramHandler import ProgramHandler
 
 from evdev.ecodes import *
 
-device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd",grabbed=True)
 
 #MAke event handle key and key state
 @device.eventHandler(KEY_LEFTCTRL+KEY_A)
