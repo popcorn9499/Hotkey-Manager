@@ -3,6 +3,7 @@ import time
 import asyncio
 from EventHandler import EventHandler
 from InputHandler import InputHandler
+from ProgramHandler import ProgramHandler 
 
 from evdev.ecodes import *
 
@@ -11,7 +12,7 @@ device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd")
 
 @device.eventHandler.event(KEY_A)
 async def foo():
-    print("This is foo's first handler")
+    ProgramHandler("cat /home/popcorn9499/iommuGroups.sh")
 
 @device.eventHandler.event(KEY_B)
 async def bar():
