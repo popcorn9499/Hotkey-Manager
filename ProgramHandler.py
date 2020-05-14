@@ -1,12 +1,12 @@
 import asyncio
 
-class ProgramHandler():
-    def __init__(self,cmd):
+class ProgramHandler(): #manage programs being launched by a hotkey
+    def __init__(self,cmd): #create the object and start the async task
         self.cmd = cmd
         loop = asyncio.get_event_loop()
         loop.create_task(self.run())
 
-    async def run(self):
+    async def run(self):  
         proc = await asyncio.create_subprocess_shell(
         self.cmd,
         stdout=asyncio.subprocess.PIPE,
