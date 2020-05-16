@@ -5,17 +5,16 @@ from EventHandler import EventHandler
 
 
 
-class InputHandler():
+class InputHandler(): #handles the input from the keyboard. allowing for taking exclusive control of the input device
     def __init__(self,device,grabbed=False):
         self.dev = evdev.InputDevice(device)
         self.eventHandler = EventHandler()
         if grabbed:
-            self.dev.grab()
-        asyncio.get_event_loop().create_task(self.keyboardHandler())
+            self.dev.grab() #takes exclusive control over the keyboard
+        asyncio.get_event_loop().create_task(self.keyboardHandler()) #starts the keyboad handler loop
 
-    async def keyboardHandler(self):
+    async def keyboardHandler(self): #continuously grabs input from the keyboard. 
         async for ev in self.dev.async_read_loop():
-            if ev.type == evdev.ecodes.EV_KEY:
-                print(evdev.categorize(ev))
-                await self.eventHandler.call(ev.code,ev)
-                print(ev.value)
+            if ev.type == evdev.ecodes.EV_KEY: #specifys only keyboard input
+                print(evdev.categorize(ev)) #prints debug info on which key was pressed and how it was pressed
+                await self.eventHandler.call(ev.code,ev) #sends keyboard event
