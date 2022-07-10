@@ -9,6 +9,7 @@ class InputHandler(): #handles the input from the keyboard. allowing for taking 
     def __init__(self,device,grabbed=False):
         self.dev = evdev.InputDevice(device)
         self.eventHandler = EventHandler()
+        print("Grabbed: {0}".format(grabbed))
         if grabbed:
             self.dev.grab() #takes exclusive control over the keyboard
         asyncio.get_event_loop().create_task(self.keyboardHandler()) #starts the keyboad handler loop
