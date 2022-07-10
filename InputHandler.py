@@ -12,7 +12,9 @@ class InputHandler(): #handles the input from the keyboard. allowing for taking 
         print("Grabbed: {0}".format(grabbed))
         if grabbed:
             self.dev.grab() #takes exclusive control over the keyboard
-        asyncio.get_event_loop().create_task(self.keyboardHandler()) #starts the keyboad handler loop
+
+    async def init(self):
+        asyncio.create_task(self.keyboardHandler()) #starts the keyboad handler loop
 
     async def keyboardHandler(self): #continuously grabs input from the keyboard. 
         async for ev in self.dev.async_read_loop():

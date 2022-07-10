@@ -135,8 +135,10 @@ async def discordDeffen(event):
 #     print(evdev.categorize(event))
 
 
+async def run(device):
+    await device.init()
+    while (True):
+        await asyncio.sleep(60)
 
-
-asyncio.get_event_loop().run_forever()
-
+asyncio.run(run(device))
 
