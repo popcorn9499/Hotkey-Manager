@@ -8,6 +8,13 @@ import KeyPressHandler
 
 from evdev.ecodes import *
 
+'''
+note to anyone using this software. please dont use modifier keys with it 
+Ctrl+c and ctrl+z will activate other software as macros a single key presses
+'''
+
+
+
 device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd",grabbed=True)
 e = evdev.ecodes
 uinput = evdev.UInput()
