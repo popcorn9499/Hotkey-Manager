@@ -21,19 +21,19 @@ uinput = evdev.UInput()
 
 
 
-@device.eventHandler(KEY_A)
-async def foo(event):
+#@device.eventHandler(KEY_A)
+#async def foo(event):
     #ProgramHandler("cat /home/popcorn9499/iommuGroups.sh")
     
-    if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
-        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_M])
-        await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
+    #if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
+        #key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_M])
+        #await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
 
 @device.eventHandler(KEY_Q)
 async def micMuteStream(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
-        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_Q])
+        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_L])
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
 @device.eventHandler(KEY_1)
@@ -45,7 +45,7 @@ async def gameMuteStream(event):
 @device.eventHandler(KEY_A)
 async def discordMuteStream(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
-        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_A])
+        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_SEMICOLON])
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
 @device.eventHandler(KEY_Z)
@@ -57,13 +57,13 @@ async def musicMuteStream(event):
 @device.eventHandler(KEY_X)
 async def brbSceneStream(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
-        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_X])
+        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_SLASH])
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
 @device.eventHandler(KEY_S)
 async def gameSceneStream(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
-        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_O])
+        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_J])
 
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
@@ -126,7 +126,7 @@ async def discordDeffen(event):
 @device.eventHandler(KEY_GRAVE)
 async def discordDeffen(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
-        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_GRAVE])
+        key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_COMMA])
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
 # @device.eventHandler(KEY_B)
