@@ -71,13 +71,15 @@ class obsWSHandler:
         self
         request simpleobsws.Request
     returns
-        none
+        simpleobsws.RequestResponse
     '''
     async def _call(self, request):
+        ret = simpleobsws.RequestResponse("")
         try:
-            await self._ws.call(request)
+            ret = await self._ws.call(request)
         except simpleobsws.NotIdentifiedError:
             print("Stop pressing these keys without obs launched")
+        return ret
 
     async def connect(self):
         connected = False
