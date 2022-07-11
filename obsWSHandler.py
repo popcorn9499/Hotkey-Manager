@@ -24,10 +24,7 @@ class obsWSHandler:
                 await self._ws.disconnect()
                 await self.connect()
             await asyncio.sleep(30)
-
-
-
-#     await ws.disconnect() # Disconnect from the websocket server cleanly
+        await ws.disconnect() # Disconnect from the websocket server cleanly
 
 
     # async def switchScene(self):
