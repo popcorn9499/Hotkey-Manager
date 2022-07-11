@@ -26,6 +26,9 @@ class obsWSHandler:
             await asyncio.sleep(30)
         await ws.disconnect() # Disconnect from the websocket server cleanly
 
+    async def toggleMute(self,name):
+        request = simpleobsws.Request("ToggleInputMute", requestData={"inputName": name})
+        ret = await self._ws.call(request)
 
     # async def switchScene(self):
     #     simpleobsws.
