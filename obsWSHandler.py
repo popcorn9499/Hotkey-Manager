@@ -34,7 +34,7 @@ class obsWSHandler:
         request = simpleobsws.Request("SetCurrentProgramScene", requestData={"sceneName": name})
         ret = await self._ws.call(request)
 
-    async def saveReplayBuffer(self,name):
+    async def saveReplayBuffer(self):
         request = simpleobsws.Request("SaveReplayBuffer")
         ret = await self._ws.call(request)
 
