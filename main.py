@@ -40,7 +40,7 @@ async def micMuteStream(event):
         await obsWS.toggleMute("Mic/Aux")
         
         
-@device.eventHandler(KEY_1)2
+@device.eventHandler(KEY_1)
 async def gameMuteStream(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
         key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_1])
