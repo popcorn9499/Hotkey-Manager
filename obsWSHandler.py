@@ -15,12 +15,12 @@ class obsWSHandler:
     async def init(self):
         await self.connect()
         request = simpleobsws.Request('GetVersion') # Build a Request object
-
         while (True):
             ret = await self._ws.call(request) # Perform the request
             if ret.ok(): # Check if the request succeeded
                 print("Request succeeded! Response data: {}".format(ret.responseData))
             else:
+                print("failed " + str(ret.requestStatus))
                 await self._ws.disconnect()
                 await self.connect()
             await asyncio.sleep(30)
