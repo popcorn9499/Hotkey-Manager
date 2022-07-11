@@ -135,10 +135,12 @@ async def discordDeffen(event):
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
 
 @device.eventHandler(KEY_GRAVE)
-async def discordDeffen(event):
+async def replayBufferSave(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN:
         key = KeyPressHandler.KeyPress(keys=[KEY_LEFTCTRL,KEY_COMMA])
         await key.keyPress(keyState=KeyPressHandler.KEY_STATE.KEY_TOGGLE,pressDuration=0.1)
+        await obsWS.saveReplayBuffer()
+
 
 # @device.eventHandler(KEY_B)
 # async def bar(event):
