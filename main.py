@@ -5,8 +5,10 @@ from EventHandler import EventHandler
 from InputHandler import InputHandler
 from ProgramHandler import ProgramHandler 
 import KeyPressHandler
-
+from utils import config
 from evdev.ecodes import *
+import obsWSHandler
+
 
 '''
 note to anyone using this software. please dont use modifier keys with it 
@@ -19,7 +21,7 @@ device = InputHandler("/dev/input/by-path/platform-i8042-serio-0-event-kbd",grab
 e = evdev.ecodes
 uinput = evdev.UInput()
 
-
+obsWS = obsWSHandler.obsWSHandler("WS_Config.json")
 
 #@device.eventHandler(KEY_A)
 #async def foo(event):
@@ -134,11 +136,11 @@ async def discordDeffen(event):
 #     print("This is bar's first handler")
 #     print(evdev.categorize(event))
 
-
-async def run(device):
+async def run(device,obsWS):
     await device.init()
+    await obsWS.init()
     while (True):
         await asyncio.sleep(60)
 
-asyncio.run(run(device))
 
+asyncio.run(run(device,obsWS))
