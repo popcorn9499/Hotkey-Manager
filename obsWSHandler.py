@@ -16,7 +16,7 @@ class obsWSHandler:
         await self.connect()
         request = simpleobsws.Request('GetVersion') # Build a Request object
         while (True):
-            ret = await self._ws.call(request) # Perform the request
+            ret = await self._call(request) # Perform the request
             if ret.ok(): # Check if the request succeeded
                 print("Request succeeded! Response data: {}".format(ret.responseData))
             else:
@@ -28,15 +28,21 @@ class obsWSHandler:
 
     async def toggleMute(self,name):
         request = simpleobsws.Request("ToggleInputMute", requestData={"inputName": name})
-        ret = await self._ws.call(request)
+        ret = await self._call(request)
 
     async def setCurrentScene(self,name):
         request = simpleobsws.Request("SetCurrentProgramScene", requestData={"sceneName": name})
-        ret = await self._ws.call(request)
+        ret = await self._call(request)
 
     async def saveReplayBuffer(self):
         request = simpleobsws.Request("SaveReplayBuffer")
-        ret = await self._ws.call(request)
+        ret = self._call(request)
+
+    async def _call(self, request):
+        try:
+            await self._ws.call(request)
+        except simpleobsws.NotIdentifiedError:
+            print("Stop pressing these keys without obs launched")
 
     async def connect(self):
         connected = False
