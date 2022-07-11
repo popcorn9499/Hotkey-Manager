@@ -104,12 +104,12 @@ async def musicVolumeUp(event):
 @device.eventHandler(KEY_F3)
 async def discordVolumeDown(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN or event.value == KeyPressHandler.KEY_STATE.KEY_HOLD:
-        ProgramHandler("/home/popcorn9499/Scripts/perSinkVolumeControl communication_audio -1%")
+        ProgramHandler("/home/popcorn9499/Scripts/perSinkVolumeControl Communication_Audio -1%")
 
 @device.eventHandler(KEY_F4)
 async def discordVolumeUp(event):
     if event.value == KeyPressHandler.KEY_STATE.KEY_DOWN or event.value == KeyPressHandler.KEY_STATE.KEY_HOLD:
-        ProgramHandler("/home/popcorn9499/Scripts/perSinkVolumeControl communication_audio +1%")
+        ProgramHandler("/home/popcorn9499/Scripts/perSinkVolumeControl Communication_Audio +1%")
 
 @device.eventHandler(KEY_G)
 async def discordMicMute(event):
