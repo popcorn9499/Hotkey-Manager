@@ -38,9 +38,6 @@ class obsWSHandler:
         request = simpleobsws.Request("SaveReplayBuffer")
         ret = await self._ws.call(request)
 
-    # async def switchScene(self):
-    #     simpleobsws.
-
     async def connect(self):
         await self._ws.connect()
         await self._ws.wait_until_identified()
