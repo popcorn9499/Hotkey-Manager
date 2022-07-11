@@ -30,6 +30,10 @@ class obsWSHandler:
         request = simpleobsws.Request("ToggleInputMute", requestData={"inputName": name})
         ret = await self._ws.call(request)
 
+    async def setCurrentScene(self,name):
+        request = simpleobsws.Request("SetCurrentProgramScene", requestData={"sceneName": name})
+        ret = await self._ws.call(request)
+
     # async def switchScene(self):
     #     simpleobsws.
 
