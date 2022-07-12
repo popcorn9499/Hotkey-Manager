@@ -65,7 +65,7 @@ class obsWSHandler:
     '''
     async def saveReplayBuffer(self):
         request = simpleobsws.Request("SaveReplayBuffer")
-        ret = self._call(request)
+        ret = await self._call(request)
     '''
     this function takes
         self
