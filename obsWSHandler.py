@@ -4,6 +4,7 @@ import asyncio
 
 
 class obsWSHandler:
+    
     '''
     this constructor takes takes
         self
@@ -66,6 +67,7 @@ class obsWSHandler:
     async def saveReplayBuffer(self):
         request = simpleobsws.Request("SaveReplayBuffer")
         ret = await self._call(request)
+
     '''
     this function takes
         self
