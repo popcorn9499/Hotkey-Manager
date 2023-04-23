@@ -1,6 +1,6 @@
 # Hotkey-Manager
 Hotkey Manager
-Simple tool to use EVDev to wrap a keyboard and map keys to function calls. Has built in functionality to launch commands, send commands to an obs client view obs websockets etc. 
+Simple tool to use evdev to wrap a keyboard and map keys to function calls. Has built in functionality to launch commands, send commands to an obs client view obs websockets etc. 
 
 
 ## Dependecies
